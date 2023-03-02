@@ -6,28 +6,40 @@ let userNumber = parseInt(prompt('Inserisci un numero da 1 a 5'));
 
 console.log(userNumber);
 
-let numeroDaGenerare = false;
 
-generatoreNumeri(numeroDaGenerare);
 
-function generatoreNumeri (numberPc){
-    if (numberPc == false){
-        newNumber = Math.floor(Math.random() * 5 + 1);
-    }
+const numeroBase = 1;
+const numeroTetto = 5;
+
+let numberPC = generatoreNumeri(numeroBase, numeroTetto);
+
+function generatoreNumeri (min , max){
+
+    let numberRandom = Math.floor(Math.random() * (max - min + 1)) + min;
+    
+    return numberRandom;
 }
 
-console.log(newNumber);
+console.log(numberPC);
 
-let somma = userNumber + newNumber;
+let somma = userNumber + numberPC;
 
 console.log(somma);
 
-calcoloSomma(somma);
+let conclusione = calcoloSomma(somma);
+
+console.log(conclusione);
 
 function calcoloSomma (sommaDaControllare){
+
+    let result = '';
+
     if ((sommaDaControllare % 2 == 0) && userChoise == 'pari'){
-        console.log("Ha vinto l'utente");
+        result = "Ha vinto l'utente";
     } else {
-        console.log("Ha vinto il computer");
+        result = "Ha vinto il computer";
     }
+
+    return result;
 }
+
